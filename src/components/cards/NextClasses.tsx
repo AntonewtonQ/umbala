@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Calendar, ChartLine } from "lucide-react"; // Ícones
+import { Calendar, ChartLine, Clock, MapPin } from "lucide-react"; // Ícones
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const nextClasses = [
@@ -42,8 +42,12 @@ const NextClasses = () => {
               <div>
                 <p className="font-bold text-gray-800">{nextClass.title}</p>
                 <div className="text-sm text-gray-500">
-                  <p>🕒 {nextClass.time}</p>
-                  <p>📍 {nextClass.location}</p>
+                  <p className="flex gap-1">
+                    <Clock /> {nextClass.time}
+                  </p>
+                  <p className="flex gap-1">
+                    <MapPin /> {nextClass.location}
+                  </p>
                 </div>
               </div>
             </li>

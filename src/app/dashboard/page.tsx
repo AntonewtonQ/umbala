@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { auth, db } from "@/utils/firebase";
-import { doc, DocumentData, getDoc } from "firebase/firestore";
+import { doc, DocumentData, getDoc, setDoc } from "firebase/firestore";
 import { Menu, History, ChartLine, Box, Calendar } from "lucide-react"; // Ícones para os cards
 import Sidebar from "@/components/SideBar";
 import TopBar from "@/components/TopBar";
@@ -10,6 +10,35 @@ import ProgressChart from "@/components/ProgressChart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import TrainingSummary from "@/components/cards/TrainingSummary";
 import NextClasses from "@/components/cards/NextClasses";
+
+const initializeUserData = async (user: any) => {
+  const userDocRef = doc(db, "users", user.uid);
+  const docSnap = await getDoc(userDocRef);
+
+  if (!docSnap.exists()) {
+    // Dados padrão para inicialização
+    const defaultData = {
+      uid: user.uid,
+      fullName: user.displayName || "Usuário",
+      email: user.email || "",
+      phone: "",
+      birthDate: "",
+      neighborhood: "",
+      educationLevel: "",
+      interestArea: "",
+      credits: 0,
+      totalCapacitations: 0,
+      totalChallenges: 0,
+      totalHours: 0,
+      roadmap: [],
+      progressData: [],
+      events: [],
+      createdAt: new Date().toISOString(),
+    };
+
+    await setDoc(userDocRef, defaultData);
+  }
+};
 
 const Dashboard = () => {
   const [userData, setUserData] = useState<DocumentData | null>(null);
@@ -19,6 +48,7 @@ const Dashboard = () => {
     const fetchUserData = async () => {
       const user = auth.currentUser;
       if (user) {
+        await initializeUserData(user); // Inicializa os dados se necessário
         const docRef = doc(db, "users", user.uid);
         const docSnap = await getDoc(docRef);
 

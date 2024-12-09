@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { History, Box } from "lucide-react"; // Ícones
+import { History, Box, Clock, Book, GraduationCap } from "lucide-react"; // Ícones
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const trainings = [
@@ -30,13 +30,8 @@ const trainings = [
 const TrainingSummary = () => {
   return (
     <Card>
-      <CardHeader className="flex justify-between items-center">
+      <CardHeader className="flex justify-between">
         <CardTitle>Resumo de Capacitações</CardTitle>
-        <input
-          type="text"
-          placeholder="Pesquisar"
-          className="text-sm border-gray-300 rounded-md p-2"
-        />
       </CardHeader>
       <CardContent>
         <ul className="space-y-4">
@@ -49,9 +44,15 @@ const TrainingSummary = () => {
               <div>
                 <p className="font-bold text-gray-800">{training.title}</p>
                 <div className="text-sm text-gray-500 flex gap-2">
-                  <span>⏱️ {training.duration}</span>
-                  <span>📚 {training.lessons}</span>
-                  <span>👨‍🏫 {training.instructor}</span>
+                  <span className="flex gap-2">
+                    <Clock /> {training.duration}
+                  </span>
+                  <span className="flex gap-2">
+                    <Book /> {training.lessons}
+                  </span>
+                  <span className="flex gap-2">
+                    <GraduationCap /> {training.instructor}
+                  </span>
                 </div>
               </div>
             </li>

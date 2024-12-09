@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="bg-[#215273] text-white py-10 px-6">
       <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 lg:gap-0">
         {/* Texto principal e botão */}
-        <div className="text-center lg:text-left">
+        <div className="text-center ">
           <h3 className="text-2xl lg:text-3xl font-semibold mb-4">
             Transforme talentos em sucesso.
           </h3>

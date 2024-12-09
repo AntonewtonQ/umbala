@@ -9,6 +9,7 @@ import {
   Briefcase,
   Settings,
 } from "lucide-react";
+import Link from "next/link";
 
 const Sidebar = () => {
   return (
@@ -18,55 +19,55 @@ const Sidebar = () => {
 
       {/* Menu */}
       <nav className="flex flex-col space-y-4">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <Home className="w-5 h-5" />
           <span>Dashboard</span>
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          href="/challenges"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <ClipboardList className="w-5 h-5" />
           <span>Desafios</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href="#"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <Calendar className="w-5 h-5" />
           <span>Roadmap</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href="#"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <Users className="w-5 h-5" />
           <span>Comunidade</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href="#"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <Briefcase className="w-5 h-5" />
           <span>Portfólio</span>
-        </a>
-        <a
-          href="#"
+        </Link>
+        <Link
+          href="/courses"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <GraduationCap className="w-5 h-5" />
           <span>Aulas</span>
-        </a>
-        <a
+        </Link>
+        <Link
           href="#"
           className="flex items-center space-x-3 hover:bg-[#23445a] p-2 rounded-md transition"
         >
           <Settings className="w-5 h-5" />
           <span>Definições</span>
-        </a>
+        </Link>
       </nav>
     </div>
   );
