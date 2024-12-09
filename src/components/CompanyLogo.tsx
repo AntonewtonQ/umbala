@@ -1,4 +1,3 @@
-// src/components/CompanyLogo.tsx
 import Image from "next/image";
 
 interface CompanyLogoProps {
@@ -7,13 +6,13 @@ interface CompanyLogoProps {
 }
 
 const CompanyLogo = ({ src, alt }: CompanyLogoProps) => (
-  <div className="flex items-center justify-center p-4">
+  <div className="flex items-center justify-center">
     <Image
       src={src}
       alt={alt}
-      width={150}
-      height={50}
-      className="grayscale w-36"
+      width={120}
+      height={40}
+      className="grayscale w-28 sm:w-36 hover:grayscale-0 transition"
     />
   </div>
 );

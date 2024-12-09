@@ -5,34 +5,41 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#215273] text-white py-10 px-6 mt-9">
-      <div className="container mx-auto flex justify-between my-10">
-        <h3 className="text-3xl font-semibold">
-          Transforme talentos em {"\n"} sucesso.
-        </h3>
-        <Link
-          className="w-60 p-4  text-center rounded-full text-[#215273] bg-white hover:bg-zinc-200"
-          href={"/register"}
-        >
-          Candidata-te já!
-        </Link>
-      </div>
-      <div>
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+    <footer className="bg-[#215273] text-white py-10 px-6">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center lg:items-start gap-6 lg:gap-0">
+        {/* Texto principal e botão */}
+        <div className="text-center lg:text-left">
+          <h3 className="text-2xl lg:text-3xl font-semibold mb-4">
+            Transforme talentos em sucesso.
+          </h3>
+          <Link
+            href="/register"
+            className="inline-block bg-white text-[#215273] font-bold py-3 px-6 rounded-full hover:bg-zinc-200 transition"
+          >
+            Candidata-te já!
+          </Link>
+        </div>
+
+        {/* Links e informações de contato */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full lg:w-auto">
           {/* Coluna 1: Logo e descrição */}
-          <div>
-            <div className="mt-4">
-              <img src="/images/logo.png" alt="Logo Ombila" className="h-8" />
-              <p className="mt-2 text-sm">
-                A ponte entre o aprendizado e o mercado.
-              </p>
-            </div>
+          <div className="flex flex-col items-center lg:items-start">
+            <img
+              src="/images/logo.png"
+              alt="Logo Ombila"
+              className="h-8 mb-4"
+            />
+            <p className="text-sm text-center lg:text-left">
+              A ponte entre o aprendizado e o mercado.
+            </p>
           </div>
 
           {/* Coluna 2: Links rápidos */}
           <div>
-            <h4 className="text-xl font-semibold">Links rápidos</h4>
-            <ul className="mt-4 space-y-2">
+            <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
+              Links rápidos
+            </h4>
+            <ul className="space-y-2 flex flex-col justify-center items-center">
               <li>
                 <a href="#inicio" className="hover:underline">
                   Início
@@ -53,24 +60,20 @@ const Footer = () => {
 
           {/* Coluna 3: Contactos */}
           <div>
-            <h4 className="text-xl font-semibold">Contactos</h4>
-            <ul className="mt-4 space-y-2">
-              <li className="flex items-center">
-                <span className="mr-2">
-                  <Phone />
-                </span>{" "}
+            <h4 className="text-lg font-semibold mb-4 text-center lg:text-left">
+              Contactos
+            </h4>
+            <ul className="space-y-2">
+              <li className="flex items-center justify-center lg:justify-start">
+                <Phone className="mr-2" />
                 +222 999 999 999
               </li>
-              <li className="flex items-center">
-                <span className="mr-2">
-                  <Mail />
-                </span>{" "}
+              <li className="flex items-center justify-center lg:justify-start">
+                <Mail className="mr-2" />
                 geral@ombila.co.ao
               </li>
-              <li className="flex items-center">
-                <span className="mr-2">
-                  <MapPin />
-                </span>{" "}
+              <li className="flex items-center justify-center lg:justify-start">
+                <MapPin className="mr-2" />
                 Luanda, Angola
               </li>
             </ul>
@@ -79,7 +82,7 @@ const Footer = () => {
       </div>
 
       {/* Rodapé */}
-      <div className="mt-8 pt-4 text-center text-xl font-bold">
+      <div className="mt-8 text-center text-sm lg:text-base font-bold">
         <p>Todos os direitos reservados 2024 – Ombila</p>
       </div>
     </footer>
